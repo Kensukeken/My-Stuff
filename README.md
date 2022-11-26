@@ -1,4 +1,5 @@
-👋 Hi, I’m @Kensukeken. You can go vist here https://solo.to/kensukeken for more infermation about me.
+👋 Hi, I’m @Kensukeken. 
+You can go vist here https://solo.to/kensukeken for more infermation about me.
 Currently learning coding and languages.
 
 <!---

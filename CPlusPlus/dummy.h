@@ -1,1 +1,0 @@
-lol in C++ way

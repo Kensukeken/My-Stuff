@@ -1,4 +1,3 @@
-@ -0,0 +1,265 @@
 import turtle
 
 draw = turtle.Turtle()

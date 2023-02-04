@@ -1,94 +1,225 @@
-import turtle
+# My Stuff
+An Artist and
+I code in TeX (Latex), Python, C++, C#.
+![Logo](https://cdn.discordapp.com/attachments/934212312921931786/1064712436520853514/download.png)
 
-draw = turtle.Turtle()
 
-def curve(): draw.pen(pencolor="white", pensize=3, speed=5) for i in range(200): draw.rt(1) draw.fd(1)
 
-def heart(): draw.pen(pencolor="white",fillcolor="red", pensize=3, speed=5) draw.shape("turtle") draw.shapesize(1,1,1) draw.begin_fill() draw.lt(50) draw.fd(113) curve() draw.lt(120) curve() draw.fd(112) draw.end_fill()
+## Usage/Examples
+``For C#``
+```using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
+using System.Numerics;
+using System.Reflection;
+using System.Windows.Forms;
 
-draw.hideturtle()
-window = turtle.Screen() window.bgcolor('black')
+using IVSDKDotNet;
+using IVSDKDotNet.Enums;
+using static IVSDKDotNet.Native.Natives;
 
-draw.penup() draw.goto(-80,300) draw.pendown() draw.shapesize(1,2,1)
+namespace IV_MG
+{
+    public class Main : Script
+    {
 
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=8)
+        #region Variables
+        //private int playerPed;
+        #endregion
 
-draw.begin_fill()
+        #region Constructor
+        public Main()
+        {
+            // Subscribe to script events
+            Initialized += Main_Initialized;
+            Tick += Main_Tick;
+            KeyDown += Main_KeyDown;
+        }
+        #endregion
 
-draw.fd(160) draw.rt(90) draw.fd(25) draw.rt(90) draw.fd(60) draw.lt(90)
+        private void Main_Initialized(object sender, EventArgs e)
+        {
 
-draw.fd(140) draw.lt(90) draw.fd(60) draw.rt(90) draw.fd(25) draw.rt(90) draw.fd(160) draw.rt(90) draw.fd(25) draw.rt(90) draw.fd(60) draw.lt(90) draw.fd(140) draw.left(90) draw.fd(60) draw.rt(90) draw.fd(25)
+        }
 
-draw.end_fill()
+        // Runs every frame when in-game
+        private void Main_Tick(object sender, EventArgs e)
+        {
+            int model, m, m2, m3, m4, m5, m6, m7,
+                findmodel = (int)ePed.PED_M_Y_SWAT,
+                findmodel2 = (int)ePed.PED_M_Y_COP,
+                findmodel3 = (int)ePed.PED_M_Y_COP_TRAFFIC,
+                findmodel4 = (int)ePed.PED_M_Y_STROOPER;
 
-draw.penup() draw.goto(-550,-20) draw.pendown()
+            uint model2;
+            int
+                polpat = (int)eVehicle.VEHICLE_POLPATRIOT,
+                noose = (int)eVehicle.VEHICLE_NOOSE,
+                police = (int)eVehicle.VEHICLE_POLICE,
+                police2 = (int)eVehicle.VEHICLE_POLICE2,
+                polmav = (int)eVehicle.VEHICLE_POLMAV,
+                pred = (int)eVehicle.VEHICLE_PREDATOR;
 
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=2) draw.begin_fill()
+            #region PoliceCops
+            //PedPools
+            int[] peds = CPools.GetAllPedHandles();
+            for (int i = 0; i < peds.Length; i++)
+            {
+                if (DOES_CHAR_EXIST(peds[i]))
+                {
+                    model = 0;
+                    GET_CHAR_MODEL(peds[i], out model);
+                    {
+                        if (((model != 0) && (findmodel == 0)) || (findmodel == model))
+                        {
+                            if (!IS_CHAR_DEAD(peds[i]))
+                            {
+                                if (IS_CHAR_IN_ANY_HELI(peds[i]) && !HAS_CHAR_GOT_WEAPON(peds[i], (int)eWeaponType.WEAPON_KNIFE))
+                                {
+                                    REMOVE_ALL_CHAR_WEAPONS(peds[i]);
+                                    GIVE_WEAPON_TO_CHAR(peds[i], (uint)eWeaponType.WEAPON_EPISODIC_14, 1000, false);
+                                    GIVE_WEAPON_TO_CHAR(peds[i], (uint)eWeaponType.WEAPON_KNIFE, 1, false);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //PedPools
+            int[] peds2 = CPools.GetAllPedHandles();
+            for (int i = 0; i < peds2.Length; i++)
+            {
+                if (DOES_CHAR_EXIST(peds2[i]))
+                {
+                    m = 0;
+                    GET_CHAR_MODEL(peds2[i], out m);
+                    {
+                        if (((m != 0) && (findmodel2 == 0)) || (findmodel2 == m))
+                        {
+                            if (!IS_CHAR_DEAD(peds2[i]))
+                            {
 
-draw.rt(90) draw.fd(25) draw.rt(90) draw.fd(165) draw.lt(90) draw.fd(115) draw.rt(90) draw.fd(25) draw.rt(90) draw.fd(140) draw.rt(90) draw.fd(190) draw.rt(90)
+                                if (IS_CHAR_IN_ANY_HELI(peds2[i]) && !HAS_CHAR_GOT_WEAPON(peds2[i], (int)eWeaponType.WEAPON_KNIFE))
+                                {
+                                    REMOVE_ALL_CHAR_WEAPONS(peds2[i]);
+                                    GIVE_WEAPON_TO_CHAR(peds2[i], (uint)eWeaponType.WEAPON_EPISODIC_14, 1000, false);
+                                    GIVE_WEAPON_TO_CHAR(peds2[i], (uint)eWeaponType.WEAPON_KNIFE, 1, false);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //PedPools
+            int[] peds3 = CPools.GetAllPedHandles();
+            for (int i = 0; i < peds3.Length; i++)
+            {
+                if (DOES_CHAR_EXIST(peds3[i]))
+                {
+                    m2 = 0;
+                    GET_CHAR_MODEL(peds3[i], out m);
+                    {
+                        if (((m2 != 0) && (findmodel3 == 0)) || (findmodel3 == m2))
+                        {
+                            if (!IS_CHAR_DEAD(peds3[i]))
+                            {
 
-draw.end_fill()
+                                if (IS_CHAR_IN_ANY_HELI(peds3[i]) && !HAS_CHAR_GOT_WEAPON(peds3[i], (int)eWeaponType.WEAPON_KNIFE))
+                                {
+                                    REMOVE_ALL_CHAR_WEAPONS(peds3[i]);
+                                    GIVE_WEAPON_TO_CHAR(peds3[i], (uint)eWeaponType.WEAPON_EPISODIC_14, 1000, false);
+                                    GIVE_WEAPON_TO_CHAR(peds3[i], (uint)eWeaponType.WEAPON_KNIFE, 1, false);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+         
+            //PedPools 
+            int[] peds4 = CPools.GetAllPedHandles();
+            for (int i = 0; i < peds4.Length; i++)
+            {
+                if (DOES_CHAR_EXIST(peds3[i]))
+                {
+                    m3 = 0;
+                    GET_CHAR_MODEL(peds3[i], out m3);
+                    {
+                        if (((m3 != 0) && (findmodel4 == 0)) || (findmodel4 == m3))
+                        {
+                            if (!IS_CHAR_DEAD(peds4[i]))
+                            {
 
-draw.penup() draw.fd(140)
+                                if (IS_CHAR_IN_ANY_HELI(peds4[i]) && !HAS_CHAR_GOT_WEAPON(peds4[i], (int)eWeaponType.WEAPON_KNIFE))
+                                {
+                                    REMOVE_ALL_CHAR_WEAPONS(peds4[i]);
+                                    GIVE_WEAPON_TO_CHAR(peds4[i], (uint)eWeaponType.WEAPON_EPISODIC_14, 1000, false);
+                                    GIVE_WEAPON_TO_CHAR(peds4[i], (uint)eWeaponType.WEAPON_KNIFE, 1, false);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-draw.fd(70)
+            #endregion
 
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=8) draw.begin_fill()
 
-draw.rt(90) draw.fd(190) draw.lt(90) draw.pendown() draw.circle(60) draw.lt(90) draw.penup() draw.fd(20) draw.rt(90) draw.pendown() draw.circle(40) draw.rt(90) draw.penup() draw.fd(20) draw.lt(90)
+           
+        }
+        
+        //todo
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.NumPad7)
+            {
+                uint model2;
+                int
+                    polpat = (int)eVehicle.VEHICLE_POLPATRIOT;
 
-draw.end_fill()
+                #region PoliceVehicles
 
-draw.fd(100) draw.pendown()
+                int[] vehs = CPools.GetAllVehicleHandles();
 
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=8) draw.begin_fill()
+                for (int i = 0; i < vehs.Length; i++)
+                {
+                    if (DOES_VEHICLE_EXIST(vehs[i]))
+                    {
+                        model2 = 0;
+                        GET_CAR_MODEL(vehs[i], out model2);
+                        {
+                            if (((model2 != 0) && (polpat == 0)) || (polpat == model2))
+                            {
+                                if (!IS_CAR_DEAD(vehs[i]))
+                                {
+                                    int driver;
+                                    GET_DRIVER_OF_CAR(vehs[i], out driver);
+                                    if (driver == (int)ePed.PED_M_Y_COP)
+                                    {
+                                        SET_CAR_LIVERY(vehs[i], 2);
+                                    }
 
-draw.lt(100) draw.fd(120) draw.rt(100) draw.fd(20) draw.rt(80) draw.fd(100) draw.lt(80) draw.fd(20) draw.lt(80) draw.fd(100) draw.rt(80) draw.fd(20) draw.rt(100) draw.fd(120) draw.rt(80) draw.fd(50) draw.lt(180)
+                                    //more
+                                }
+                            }
+                        }
+                    }
+                }
+                #endregion
+                
+            }
+        }
+    }
+}
+```
 
-draw.end_fill()
 
-draw.penup() draw.fd(100) draw.pendown()
+## Related
 
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=8) draw.begin_fill()
+Here are some related projects
 
-draw.lt(90) draw.fd(120) draw.rt(90) draw.fd(80) draw.rt(90) draw.fd(20) draw.rt(90) draw.fd(60) draw.lt(90) draw.fd(30) draw.lt(90) draw.fd(60) draw.rt(90) draw.fd(20) draw.rt(90) draw.fd(60) draw.lt(90) draw.fd(30) draw.lt(90) draw.fd(60) draw.rt(90) draw.fd(20) draw.rt(90) draw.fd(80)
-
-draw.end_fill()
-
-draw.penup() draw.rt(180) draw.fd(200) draw.pendown()
-
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=2) draw.begin_fill()
-
-draw.lt(90) draw.fd(50) draw.lt(30) draw.fd(80) draw.rt(120) draw.fd(20) draw.rt(60) draw.fd(60) draw.lt(180) draw.rt(60) draw.fd(60) draw.rt(60) draw.fd(20) draw.rt(120) draw.fd(80) draw.lt(30) draw.fd(50) draw.rt(90) draw.fd(20) draw.rt(180)
-
-draw.end_fill()
-
-draw.penup() draw.fd(120) draw.pendown()
-
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=8) draw.begin_fill()
-
-draw.circle(60) draw.lt(90) draw.penup() draw.fd(20) draw.pendown() draw.rt(90) draw.circle(40) draw.rt(90) draw.penup() draw.fd(20) draw.lt(90)
-
-draw.end_fill()
-
-draw.fd(100) draw.circle(60, extent=60) draw.pendown()
-
-draw.pen(pencolor="white",fillcolor="yellow", pensize=3, speed=8) draw.begin_fill()
-
-draw.lt(30)
-
-draw.fd(85) draw.lt(90) draw.fd(20) draw.lt(90) draw.fd(70) draw.circle(-20, extent=180) draw.fd(70) draw.lt(90)
-
-draw.fd(20) draw.lt(90) draw.fd(85) draw.circle(40, extent=180)
-
-draw.end_fill()
-
-draw.penup()
-
-draw.rt(180) draw.fd(35) draw.lt(90) draw.fd(140) draw.lt(90) draw.pendown()
-
-heart()
-
-turtle.done()
-$\int \frac{2 e^{2 x}-e^x}{\sqrt{3 e^{2 x}-6 e^x-1}} d x=\int \frac{\left(2 e^x-1\right) e^x}{\sqrt{3\left(e^{2 x}-2 e^x-\frac{1}{3}\right)}} d x=\int \frac{\left(2 e^x-1\right) e^x}{\sqrt{3} \sqrt{e^{2 x}-2 e^x-\frac{1}{3}}} d x$
-$\frac{1}{\sqrt{3}} \int \frac{\frac{2}{\sqrt{3}} \sec \theta \tan \theta}{\sqrt{\frac{4}{3} \sec ^2 \theta-\frac{4}{3}}} d \theta=\frac{2}{3} \int \frac{\sec \theta \tan \theta}{\sqrt{\frac{4}{3}\left(\sec ^2 \theta-1\right)}}=\frac{2}{3} \int \frac{(\sec \theta \tan \theta)}{\frac{2}{\sqrt{3}} \sqrt{\tan ^2 \theta}} d \theta$
+[Tex](https://github.com/Kensukeken/Kensukeken/blob/main/I%20can't%20think%20of%20a%20good%20integral.tex)\ 
+[Python](https://github.com/Kensukeken/Kensukeken/blob/main/I%20love%20you)\ 
+[C++](https://github.com/Kensukeken/Kensukeken/blob/main/Car%20Rental%20System%20In%20C%2B%2B.cpp)\ 
+[C#](https://github.com/Kensukeken/Kensukeken/blob/main/using%20System%3B.cs) 

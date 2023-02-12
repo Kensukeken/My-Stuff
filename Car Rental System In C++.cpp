@@ -30,27 +30,27 @@ struct Room
 
 // Functions for the program to make it easier to understand what's going on
 
-void program(vector<Room>&, vector<Client>&);                          // The program starts with a loop, which the client can exit when entering 0 or all rooms are full.
-int IchooseYouPikachu();                                               // This asks the user what they would like to do in the very beginning of the program.
-int checkAvailability(vector<Room>);                                   // Checks if any rooms are available at the beginning of the program.
-void whatwillPikachudo(vector<Room>&, vector<Client>&, int, int);      // This will return the amount of free rooms. and if the hotel is booked it then returns to the function where u can choose options.
-void bookings(vector<Room>&, vector<Client>&, int);                    // Main function for reserving rooms.
-bool available(vector<Room>, int);                                     // Returns true if the room is free.
-bool typeAvailability(vector<Room>, int);                              // Returns true if there's min. 1 free room of the chosen room type.
-bool booked(vector<Room>);                                             // Returns true if all the rooms are free
-int choosetype(vector<Room>);                                          // Returns the room type aka single (1) or double (2).
-int roomselection();                                                   // Asks the user if they wanna decide on the room number themselves or not.
-int randomsandomroomiewoomie(vector<Room>&, int);                      // If the computer decides the users room, it returns a random integer depending on the room type
-int clientchoosestomanuallyselecttheroom(vector<Room>&, int);          // Returns a room number that the user chose.
-string whatPokemon();                                                  // Client chooses a Pokemon theme for their room.
-void istheroomfreeornauwr(vector<Room>);                               // Returns true if  the room is free or not.
-float discountchecker(Room, Client);                                   // Returns a discount depending on the situation.
-float calculatetheprice(float, int, float);                            // Returns the price.
-void checkout(vector<Room>&, vector<Client>&);                         // Check out for the client and prints invoice and sets the room available for other clients.
-void Invoice(vector<Room>, vector<Client>, int);                       // Prints an invoice to the user with their information of the reservation.
+void program(vector<Room>&, vector<Client>&);                         
+int IchooseYouPikachu();                                               
+int checkAvailability(vector<Room>);                                  
+void whatwillPikachudo(vector<Room>&, vector<Client>&, int, int);      
+void bookings(vector<Room>&, vector<Client>&, int);                   
+bool available(vector<Room>, int);                                    
+bool typeAvailability(vector<Room>, int);                             
+bool booked(vector<Room>);                                             
+int choosetype(vector<Room>);                                         
+int roomselection();                                                  
+int randomsandomroomiewoomie(vector<Room>&, int);                     
+int clientchoosestomanuallyselecttheroom(vector<Room>&, int);          
+string whatPokemon();                                                  
+void istheroomfreeornauwr(vector<Room>);                               
+float discountchecker(Room, Client);                                   
+float calculatetheprice(float, int, float);                           
+void checkout(vector<Room>&, vector<Client>&);                         
+void Invoice(vector<Room>, vector<Client>, int);                      
 
 vector<Room> hotel(400);
-// there needs to be 6 inside the vector thingie cuz it works that way and otherwise it doesn't work idk
+
 void Invoice(vector<Room> hotel, vector<Client> client, int room);
 
 void errorMessage()
@@ -102,12 +102,10 @@ int checkAvailability(vector<Room> hotel)
 
 float discountchecker(Room room, Client client)
 {
-    /* Discounts: from 0 to 4 nights it's 0%
-    from 5 to 9 nighs it's 5%
-    and over 10 nights it's 10%
-    Discount is doubled if it's a double room
-    returns the discount as either 0 or 0.1 or 0.2
-    */
+   
+
+
+
     float discount;
 
     if (client.nightiez >= 10)
@@ -136,15 +134,13 @@ float calculatetheprice(float price, float discount, int nights)
     float discountedPrice;
 
     discountedPrice = price * (static_cast<float>(nights)) * (1.0 - discount);
-    // it calculates the price
+
     return discountedPrice;
-    // static_cast returns a value of type. it forces one data type to be converted into another data type
-    // yes i googled that because i didnt know how to explain it myslf in my own words yolo
 }
 
 bool typeAvailability(vector<Room> hotel, int input)
 {
-    // checks if any room type is available *gasp*
+
     int checkRoomAvailability = 0;
 
     if (input == 1)
@@ -178,22 +174,21 @@ bool typeAvailability(vector<Room> hotel, int input)
 }
 
 int choosetype(vector<Room> hotel)
-{ // basically returns the room you've chosen aka double or single uwu
+{ 
     int input;
     int yezornauwr;
-    // yezornauwr sounds stupid but it just means yes or no.
-    // basically its the variable that asks the user if they wanna continue the program or not
+   
+
     do
     {
-        cout << "What room would you like to have: a single room or a double room?" << endl // asks the user what room they wanna have
+        cout << "What room would you like to have: a single room or a double room?" << endl 
             << "Choose 1 for single room \nChoose 2 for double room." << endl
             << "Choose 0 to DEGUGHI (EXIT)." << endl;
-        // I wanted to include Japanese in the program since the hotel is located in Tokyo.
-        // I did add translation to deguchi (exit) so it would be less confusing to the user.
+
         cin >> input;
         while (cin.fail())
         {
-            // cin.fail is there to check if its an integer or not, if not user will get this response:
+           
             errorMessage();
             cin >> input;
         }
@@ -204,58 +199,7 @@ int choosetype(vector<Room> hotel)
         }
 
     } while (input != 1 && input != 2);
-    // gonna check that the input would be correct
-
-    // if (input == 1)
-    // {
-    //     // if no single rooms are available the program will ask the client if they want to select another room perhaps??
-    //     do
-    //     {
-
-    //         cout << "Unfortunately single rooms aren't available at the moment." << endl
-    //              << "Would you like to book a double room instead or not make a reservation at all?" << endl
-    //              << "Choose 1 to continue, and choose 0 to stop making reservations." << endl;
-    //         cin >> yezornauwr;
-    //         while (cin.fail())
-    //         {
-    //             errorMessage();
-    //             cin >> yezornauwr;
-    //         }
-    //     } while (yezornauwr != 0 && yezornauwr != 1);
-    //     if (yezornauwr == 0)
-    //     {
-    //         return 0;
-    //     }
-    //     input = 2;
-    // }
-    // /*
-    //  * Evaluates the condition aka in the upper one its single rooms, if not available it asks the user if they wanna book another room instead
-    //  * The error message comes in handy when the user adds non numbers or weird combinations of things.
-    //  * The error message tells the user that their input was not understood  therefore, the users gotta try again
-    //  * Same goes for the code below but for double rooms. uwu
-    //  */
-    // else if (input == 2)
-    // {
-    //     do
-    //     {
-    //         cout << "Unfortunately double rooms aren't available at the moment." << endl
-    //              << "Would you like to book a single room instead or not make a reservation at all?" << endl
-    //              << "Choose 1 to continue, and choose 0 to stop making reservations." << endl;
-    //         cin >> yezornauwr;
-    //         while (cin.fail())
-    //         {
-    //             errorMessage();
-    //             cin >> yezornauwr;
-    //         }
-    //     } while (yezornauwr != 0 && yezornauwr != 1);
-    //     if (yezornauwr == 0)
-    //     {
-    //         return 0;
-    //     }
-    //     input = 1;
-    // }
-    // has an issue didnt have time to figure out how to fix it
-
+    
     return input;
 }
 
@@ -275,10 +219,10 @@ int roomselection()
 
     return input;
 }
-// Quite self explanatory. program asks if the user wants the program to decide on their room or do they wanna do it themselves.
+
 
 int randomsandomroomiewoomie(vector<Room>& hotel, int type)
-{ // the random room selection thingie if u want the program to decide it uwu
+{ 
     int roomnbr;
     if (type == 1)
     {
@@ -302,7 +246,7 @@ int randomsandomroomiewoomie(vector<Room>& hotel, int type)
 int clientchoosestomanuallyselecttheroom(vector<Room>& hotel, int type)
 {
     int roomnumb;
-    // asking for the room number what they chose and it checks if its an integer or not
+   
     do
     {
         if (type == 1)
@@ -318,7 +262,7 @@ int clientchoosestomanuallyselecttheroom(vector<Room>& hotel, int type)
                     cin >> roomnumb;
                 }
             } while (roomnumb <= 0 && printf("Error! wrong number, please choose again.\n") || roomnumb % 2 == 0 && printf("Error! wrong number, please choose again.\n") || roomnumb > (hotel.size() + 1) && printf("Error! wrong number, please choose again.\n"));
-            // I use printf cause its inside the while statement. i tried to use cout but it didnt work uwu plus it checks if the room is odd numbered
+           
         }
         else if (type == 2)
         {
@@ -333,7 +277,7 @@ int clientchoosestomanuallyselecttheroom(vector<Room>& hotel, int type)
                     cin >> roomnumb;
                 }
             } while (roomnumb <= 0 && printf("Error! wrong number, please choose again.\n") || roomnumb % 2 != 0 && printf("Error! wrong number, please choose again.\n") || roomnumb > (hotel.size() + 1) && printf("Error! wrong number, please choose again.\n"));
-            // checks if the room is even numbered
+            
         }
     } while (!(available(hotel, roomnumb)) && printf("Unfortunately this room is not available, please choose another room.\n"));
 
@@ -375,7 +319,7 @@ string whatPokemon()
         selectedPokemonString = "Clefairy";
     }
     return selectedPokemonString;
-    // asks what pokemon themed hotel room the client wants to stay in uwu
+
 }
 
 void bookings(vector<Room>& hotel, vector<Client>& client, int clientnumb)
@@ -388,11 +332,11 @@ void bookings(vector<Room>& hotel, vector<Client>& client, int clientnumb)
     int yezornnauwr;
     int available = 0;
     string selectedPokemon;
-    // asks the user if its a single room or not.
+    
     type = choosetype(hotel);
 
     if (type == 0)
-    { // if the user doesn't want to proceed with the booking
+    {  
         return;
     }
 
@@ -408,7 +352,7 @@ void bookings(vector<Room>& hotel, vector<Client>& client, int clientnumb)
         break;
     }
     selectedPokemon = whatPokemon();
-    // asks how many nights staying
+     
     do
     {
         cout << "How long will you be staying in our hotel?" << endl;
@@ -420,11 +364,11 @@ void bookings(vector<Room>& hotel, vector<Client>& client, int clientnumb)
         }
     } while (nights < 1 && printf("Unfortunately it is not possible to stay less than 1 night, please try again, thank you.\n") || nights > 300 && printf("Too many nights lool, just buy a house instead :)\n"));
 
-    // for the bookings we need the clients name obviously so here we gon ask.
+     
     cout << "Write your full name, please." << endl;
     cin.ignore();
     getline(cin, name);
-    // to store all the info cuz we popularrrr
+     
 
     srand((unsigned int)time(NULL)); // database basically
     client[clientnumb].bookingnumb = rand() % 89999 + 10000;
@@ -442,7 +386,7 @@ void bookings(vector<Room>& hotel, vector<Client>& client, int clientnumb)
 }
 
 void istheroomfreeornauwr(vector<Room> hotel)
-{ // prints if the room is free or nauwwrrr
+{  
     int numberfortheroom;
 
     do
@@ -452,7 +396,7 @@ void istheroomfreeornauwr(vector<Room> hotel)
         while (cin.fail())
         {
             cout << "Error! input.exe not found. \nPlease, choose a number from 1 to " << hotel.size() << ": ";
-            // not using the error message here cause i wanted to add the amount of rooms the hotel has owo
+             
             cin.clear();
             cin.ignore(256, '\n');
             cin >> numberfortheroom;
@@ -474,11 +418,9 @@ void istheroomfreeornauwr(vector<Room> hotel)
 }
 
 void checkout(vector<Room>& hotel, vector<Client>& client)
-/*
- * The vector here stores clients' data so the system knows if the rooms are booked or not and
- * if they wanna proceed to checkout which this thing's about, obviously, the program will ask the user for their info
- * so in the future another client is able to book the same room. (after its checked out ofc)
- */
+ 
+
+
 {
     int roomnumb;
     int bookingnumb;
@@ -506,7 +448,7 @@ void checkout(vector<Room>& hotel, vector<Client>& client)
         while (cin.fail())
         {
             cout << "Error! input.exe not found. \nPlease, choose a number from 1 to " << hotel.size() << ": ";
-            // again not using the errormessage command cause i wanted to have the amount of rooms to the thingie
+             
             cin.clear();
             cin.ignore(256, '\n');
             cin >> roomnumb;
@@ -517,7 +459,7 @@ void checkout(vector<Room>& hotel, vector<Client>& client)
 
     } while (roomnumb < 1 || roomnumb > hotel.size());
 
-    // checking that the chosen room is actually taken owo.
+     
     if (hotel[roomnumb - 1].free)
     {
         cout << endl
@@ -525,16 +467,16 @@ void checkout(vector<Room>& hotel, vector<Client>& client)
             << endl;
     }
     else if (hotel[roomnumb - 1].client.bookingnumb == bookingnumb)
-        // checks that the booking number of the room number entered matches with the booking number entered.
+         
     {
 
         Invoice(hotel, client, roomnumb);
 
-        client.erase( // deleting the client from the vector
+        client.erase(  
             remove_if(client.begin(), client.end(), [&](Client const& x)
                 { return x.roomnumb == roomnumb; }),
             client.end());
-        client.push_back(Client()); // adding an empty customer to have still the same amount of possible customers as rooms.
+        client.push_back(Client());  
         hotel[roomnumb - 1].free = true;
 
         cout << endl
@@ -552,7 +494,7 @@ void checkout(vector<Room>& hotel, vector<Client>& client)
 
 void Invoice(vector<Room> hotel, vector<Client> client, int room)
 {
-    // Calculatezz discount price as well as gross price first for it to be easier uwu
+     
     float discount = discountchecker(hotel[room - 1], hotel[room - 1].client);
     float tehprice = hotel[room - 1].price * (static_cast<float>(hotel[room - 1].client.nightiez));
 
@@ -560,10 +502,10 @@ void Invoice(vector<Room> hotel, vector<Client> client, int room)
     {
         cout << endl
             << "No one is staying in that room." << endl;
-        // before proceeding with the check out u gotta know if the room is free or nott duh
+         
         return;
     }
-    // if it is taken, I proceed to print the invoice for the person staying there.
+     
     cout << "\n--------------------------------------------------" << endl
         << "INVOICE \nMIMARU Tokyo Shinjuku West\n3-chome-3-11 Nishishinjuku City \nTokyo 160-0023, Japan" << endl
         << "\nPayer's name: " << hotel[room - 1].client.name << "     Booking number: " << hotel[room - 1].client.bookingnumb << endl
@@ -598,14 +540,14 @@ int IchooseYouPikachu()
             IchooseYouPikachu();
         }
     } while (choice < 0 || choice > 4);
-    // If the user tries to choose anything above 4 or below 0 or letters, the program will show an error message which is written in other functions
+     
     return choice;
 }
 
 void whatwillPikachudo(vector<Room>& hotel, vector<Client>& client, int thechosenone, int clientnumb)
 {
     int roomnumb;
-    // the program  will return the amount of free rooms if the hotel is booked and then returns to the function where u can choose options (ichooseupikachu).
+
     switch (thechosenone)
     {
     case 1:
@@ -656,7 +598,7 @@ void whatwillPikachudo(vector<Room>& hotel, vector<Client>& client, int thechose
 
 void program(vector<Room>& hotel, vector<Client>& client)
 {
-    // Starts the program and handles all the function callings.
+    
     int IchooseYou;
     int clientnumb = 0;
 
@@ -666,13 +608,13 @@ void program(vector<Room>& hotel, vector<Client>& client)
         << "Our prices are: \n$100 for a single room per night and \n150$ for a double room per night." << endl
         << endl;
 
-    // this loops goes on until the user presses 0 which is the exit function
+    
     while (true)
     {
         if (checkAvailability(hotel) != 0)
             IchooseYou = IchooseYouPikachu();
 
-        // if hotel is full, the program will end.
+       
         if (checkAvailability(hotel) == 0)
         {
             cout << "Unfortunately the hotel is fully booked at the moment, we hope to see you again." << endl;
@@ -683,39 +625,37 @@ void program(vector<Room>& hotel, vector<Client>& client)
 
         whatwillPikachudo(hotel, client, IchooseYou, clientnumb);
 
-        // this will handle the users every time the loop goes through
+        
         clientnumb++;
     }
 }
 
 int main()
 {
-    // Odd numbers for single room and even numbers for double rooms cause idk makes sense.
+    
 
     srand((unsigned int)time(NULL));
-    // srand for random number generator thingie and here were giving a seed aka starting point to it
+     
     int randomroomcalc = 2 * (rand() % 20 + 20);
-    // calculates the rooms and its randomized
+     
 
     for (int i = 0; i < randomroomcalc; i++)
     {
-        // Random number is the vectors max limit
-        hotel.push_back(Room());
-        // Push back works so the user can add a room
-        client.push_back(Client());
-        // Here the fuction so u can have as many clients as there are rooms cause sometimes hotels can be fully booked so it makes sense
+         .push_back(Room());
+         .push_back(Client());
+       
 
         hotel[i].number = i + 1;
         if (hotel[i].number % 2 == 0)
         {
-            // Even number = Double room = price is 150 dollars
+            
             hotel[i].type = 2;
             hotel[i].price = 150;
             hotel[i].free = true;
         }
         else
         {
-            // Odd number = Single room = price is 100 dollars
+            
             hotel[i].type = 1;
             hotel[i].price = 100;
             hotel[i].free = true;
@@ -723,7 +663,7 @@ int main()
     }
 
     program(hotel, client);
-    // starts the user interface
+    
 
     cout << "Thank you for visiting! We hope to see you again." << endl;
     return 0;

@@ -1,4 +1,4 @@
-from turtle import *
+from turtle import 
 import turtle as tur
 
 turt=tur.Turtle()
@@ -121,7 +121,6 @@ turt.left(30)
 
 turt.penup()
 turt.home()
-
 turt.color("white")
 new.bgcolor("black")
 # setting second row
@@ -224,11 +223,7 @@ turt.left(70)
 turt.penup()
 turt.forward(55)
 turt.left(110)
-
 turt.forward(100)
-
-
-
 turt.pendown()
 turt.left(90)
 turt.forward(50)
@@ -239,13 +234,8 @@ turt.right(60)
 turt.forward(60)
 turt.backward(60)
 turt.left(30)
-
-
 turt.penup()
 turt.home()
-
-
-
 turt.right(90)
 turt.forward(215)
 turt.right(90)
@@ -266,8 +256,6 @@ turt.left(90)
 turt.forward(80)
 turt.left(90)
 turt.forward(7)
-
-
 turt.forward(100)
 turt.home()
 turt.forward(200)

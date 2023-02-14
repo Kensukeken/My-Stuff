@@ -212,13 +212,4 @@ namespace IV_MG
     }
 }
 ```
-
-
-## Related
-
-Here are some related projects
-
-[Tex](https://github.com/Kensukeken/Kensukeken/blob/main/I%20can't%20think%20of%20a%20good%20integral.tex)\ 
-[Python](https://github.com/Kensukeken/Kensukeken/blob/main/I%20love%20you)\ 
-[C++](https://github.com/Kensukeken/Kensukeken/blob/main/Car%20Rental%20System%20In%20C%2B%2B.cpp)\ 
-[C#](https://github.com/Kensukeken/Kensukeken/blob/main/using%20System%3B.cs) 
+contract me in Discord: Kensukeken#2016

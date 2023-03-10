@@ -58,6 +58,7 @@ print("\n\n")
 
 print("\033[0;33mQuestion 3")
 print("\033[0;37mLook at this series: 22, 21, 23, 22, 24, 23, … What number should come next?\n")
+print("\nA.21\nB.22\nC.23\nD.24\nE.25\n")
 correctAnswer3 = "E"
 userAnswer3 = input().upper()
 if userAnswer3 == correctAnswer3:
@@ -85,26 +86,24 @@ print(f"\033[0;37m\nYour score {score} out of 6\n")
 # Question Number 5
 
 print("\033[0;33mQuestion 5")
-print("\033[0;37mWhat is the value of Pi?\n")
-correctAnswer5 = "3.14159"
+print("\033[0;37mA ship anchored in a port has a ladder which hangs over the side. The length of the ladder is 200cm, the distance between each rung is 20cm and the bottom rung touches the water.\nThe tide rises at a rate of 10cm an hour. When will the water reach the fifth rung?\n");
+print("A.20cm\nB.200cm\nC.Never\nD.I don’t know\n");
+correctAnswer5 = "C"
 userAnswer5 = input()
 if userAnswer5 == correctAnswer5:
     print("\033[0;32mCorrect!")
     score += 1
 else:
     print("\033[0;31mWrong the correct answer is 3.14159")
-    print("\033[0;32mExplanation: Pi is a mathematical constant that represents the ratio of the circumference of a circle to its diameter. Its decimal representation is approximately 3.14159.")
-print(f"\033[0;37m\nYour score {score} out of 6\n")
+    print("\033[0;32mExplanation: The height of the fifth rung above the water is 80cm. As the tide rises at 10 cm per hour, it will take 12 hours (120cm/10cm per hour) for the water to reach the fifth rung.")
+print("\033[0;37m\nYour score {score} out of 6\n")
 
-import sys
-
-score = 0
 
 # Question Number 6
 
 print("\033[0;33mQuestion 6")
 print("\033[0;37mWhat is the Integral of cos(x)/(x^2+1)?")
-print("A.pi over e\nB.ln(pi over 2)\nC.ln\nD.I don't know")
+print("\nA.pi over e\nB.ln(pi over 2)\nC.ln\nD.I don't know")
 
 correct_answer = "A"
 user_answer = input().upper()
@@ -121,7 +120,6 @@ print("\033[0;37m\nYour score {} out of 6.\n".format(score))
 # Here's the final gives the score on how they did.
 
 final_score = int(score / 6.0 * 100)
-
 correct = score
 wrong = 6 - score
 

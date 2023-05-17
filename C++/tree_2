@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+const int MAX_FAMILY_MEMBERS = 10;
+
+int main() {
+    char familyMembers[MAX_FAMILY_MEMBERS][100];
+    char relationship[MAX_FAMILY_MEMBERS][100];
+
+    int numFamilyMembers;
+
+    printf("Enter the number of family members you want to add: ");
+    scanf("%d", &numFamilyMembers);
+
+    if (numFamilyMembers > MAX_FAMILY_MEMBERS) {
+        printf("Exceeded the maximum number of family members allowed.\n");
+        return 0;
+    }
+
+    for (int i = 0; i < numFamilyMembers; i++) {
+        printf("Enter the name of family member %d: ", i + 1);
+        scanf("%s", familyMembers[i]);
+
+        printf("Enter the relationship to you: ");
+        scanf("%s", relationship[i]);
+    }
+
+    printf("\nFamily Tree:\n");
+    for (int i = 0; i < numFamilyMembers; i++) {
+        printf("%s - %s\n", familyMembers[i], relationship[i]);
+    }
+
+    return 0;
+}

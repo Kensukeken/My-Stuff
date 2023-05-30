@@ -1,0 +1,44 @@
+#include <iostream>
+
+int main() {
+
+    int size;
+
+    std::cout << "Enter the size of your family: ";
+
+    std::cin >> size;
+
+    // Dynamically allocate memory for the family names array
+
+    std::string* familyNames = new std::string[size];
+
+    // Read family names from the user
+
+    for (int i = 0; i < size; i++) {
+
+        std::cout << "Enter name " << i + 1 << ": ";
+
+        std::cin >> familyNames[i];
+
+    }
+
+    // Display family names
+
+    std::cout << "Family names: ";
+
+    for (int i = 0; i < size; i++) {
+
+        std::cout << familyNames[i] << " ";
+
+    }
+
+    std::cout << std::endl;
+
+    // Deallocate the dynamically allocated memory
+
+    delete[] familyNames;
+
+    return 0;
+
+}
+

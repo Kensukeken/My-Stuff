@@ -1,0 +1,54 @@
+#include <iostream>
+
+struct Person {
+
+    std::string name;
+
+    int age;
+
+};
+
+int main() {
+
+    int size;
+
+    std::cout << "Enter the number of family members: ";
+
+    std::cin >> size;
+
+    // Dynamically allocate memory for the family tree
+
+    Person* familyTree = new Person[size];
+
+    // Read family member details from the user
+
+    for (int i = 0; i < size; i++) {
+
+        std::cout << "Enter the name of family member " << i + 1 << ": ";
+
+        std::cin >> familyTree[i].name;
+
+        std::cout << "Enter the age of family member " << i + 1 << ": ";
+
+        std::cin >> familyTree[i].age;
+
+    }
+
+    // Display family member details
+
+    std::cout << "Family tree:\n";
+
+    for (int i = 0; i < size; i++) {
+
+        std::cout << "Name: " << familyTree[i].name << ", Age: " << familyTree[i].age << std::endl;
+
+    }
+
+    // Deallocate the dynamically allocated memory
+
+    delete[] familyTree;
+
+    return 0;
+
+}
+

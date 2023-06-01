@@ -184,7 +184,89 @@ int main() {
 
     int b = 5;
 
-    int result = addNum(a, b);
 
-    cout
+#include <iostream>
+using namespace std;
+
+void greet() {
+    cout << "Hello! Welcome to the program." << endl;
+}
+
+void printNum(int num1, float num2) {
+    cout << "The numbers are: " << num1 << " and " << num2 << endl;
+}
+
+int addNum(int num1, int num2) {
+    return num1 + num2;
+}
+
+int main() {
+    cout << "Input and Output Section" << endl;
+    string name;
+
+    cout << "Please enter your name: ";
+    cin >> name;
+    cout << "My name is " << name << endl;
+
+    cout << "\nVariables Section" << endl;
+    double value = 50;
+    string message = "Hello World!";
+    bool flag = true;
+
+    cout << "value = " << value << endl;
+    cout << "message = " << message << endl;
+    cout << "flag = " << flag << endl;
+
+    cout << "\nArithmetic Operators Section" << endl;
+    int num1 = 5;
+    int num2 = 3;
+    int sum;
+
+    sum = num1 * num2;
+    cout << "Multiplication: " << sum << endl;
+
+    sum = num1 / num2;
+    cout << "Division: " << sum << endl;
+
+    sum = num1 % num2;
+    cout << "Modulus: " << sum << endl;
+
+    cout << "\nFunction Section 1 - no passing" << endl;
+    greet();
+
+    cout << "\nFunction Section 2 - passing a number" << endl;
+    int intNum = 5;
+    float floatNum = 5.5;
+    printNum(intNum, floatNum);
+
+    cout << "\nFunction Section 3 - pass and return" << endl;
+    int a = 2;
+    int b = 5;
+    int result = addNum(a, b);
+    cout << "The sum is: " << result << endl;
+
+    cout << "\nPointer Section - BONUS" << endl;
+    double* ptr = nullptr;
+    double number = 11;
+    ptr = &number;
+    *ptr = 7.5;
+    cout << "New value: " << *ptr << endl;
+
+    cout << "\nDynamic Memory Allocation Section - BONUS" << endl;
+    int oldArr[5] = {7, 8, 2, 9, 1};
+    int* newArr = new int[5];
+
+    for (int i = 0; i < 5; i++) {
+        newArr[i] = oldArr[i] * 2;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << newArr[i] << " ";
+    }
+    cout << endl;
+
+    delete[] newArr;
+
+    return 0;
+}
 

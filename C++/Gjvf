@@ -1,0 +1,190 @@
+#include <iostream>
+
+using namespace std;
+
+// Function declaration
+
+void greet();
+
+void printNum(int num1, float num2);
+
+int addNum(int num1, int num2);
+
+int main() {
+
+    cout << "Input and Output Section \n";
+
+    
+
+    /*  
+
+    1. Ask the user for their name. Then display
+
+    their name along with the text "My name is ". 
+
+    */
+
+    string name;
+
+    cout << "Enter your name: ";
+
+    cin >> name;
+
+    cout << "My name is " << name << endl;
+
+    
+
+    cout << "\n";
+
+    cout << "Variables Section \n";
+
+    
+
+    /*  
+
+    2. Create a double variable with the value 50.
+
+    Create a string variable with the value "Hello World!".
+
+    Create a bool variable with a true value.
+
+    Output all the variables you just created.   
+
+    */
+
+    double num = 50.0;
+
+    string str = "Hello World!";
+
+    bool flag = true;
+
+    cout << "num: " << num << endl;
+
+    cout << "str: " << str << endl;
+
+    cout << "flag: " << flag << endl;
+
+    
+
+    cout << "\n";
+
+    cout << "Arithmetic Operators Section \n";
+
+    
+
+    /*  
+
+    3. Create 3 int variables using these names: num1, num2, and sum.
+
+    Give values to your variables num1 and num2. 
+
+    Perform a Multiplication equation to equal to sum. Display sum. 
+
+    Perform a Division equation to eqaul to sum. Display sum. 
+
+    Perform an equation using the modulus operator to eqaul to sum.
+
+    Display sum. 
+
+    */
+
+    int num1 = 10;
+
+    int num2 = 5;
+
+    int sum;
+
+    
+
+    // Multiplication
+
+    sum = num1 * num2;
+
+    cout << "Multiplication: " << sum << endl;
+
+    
+
+    // Division
+
+    sum = num1 / num2;
+
+    cout << "Division: " << sum << endl;
+
+    
+
+    // Modulus
+
+    sum = num1 % num2;
+
+    cout << "Modulus: " << sum << endl;
+
+    
+
+    cout << "\n";
+
+    cout << "Function Section 1 - no passing \n";
+
+    
+
+    /* 
+
+    4. Declare a void function with the name greet(). 
+
+    Have greet() print out a greeting message when called to.
+
+    No variables are passed. Call the function in int main().
+
+    */
+
+    greet();
+
+    
+
+    cout << "Function Section 2 - passing a number\n";
+
+    
+
+    /* 
+
+    5. Declare one integer equal to 5 and a float equal to 5.5. 
+
+    Declare a void function with the name printNum(). 
+
+    Pass the two numbers to the printNum() function from int main(). 
+
+    Have the function print the numbers.
+
+    */
+
+    int intNum = 5;
+
+    float floatNum = 5.5;
+
+    printNum(intNum, floatNum);
+
+    
+
+    cout << "Function Section 3 - pass and return\n";
+
+    
+
+    /* 
+
+    6. Declare two integers, equal to 2 and 5 in int main(). 
+
+    Declare an int function with the name addNum(). 
+
+    Pass the integers to the addNum() function to handle the addition. 
+
+    Return the sum to int main() to print out the sum.  
+
+    */
+
+    int a = 2;
+
+    int b = 5;
+
+    int result = addNum(a, b);
+
+    cout
+

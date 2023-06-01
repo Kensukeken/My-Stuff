@@ -1,0 +1,158 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Input and Output Section \n";
+
+    /*  
+
+    1. Ask the user for their name. Then display
+
+    their name along with the text "My name is ". 
+
+    */
+
+    string name;
+
+    cout << "Please enter your name: ";
+
+    cin >> name;
+
+    cout << "My name is " << name << endl;
+
+    cout << "\n"; 
+
+    cout << "Variables Section \n"; 
+
+    /*  
+
+    2. Create a double variable with the value 50.
+
+    Create a string variable with the value "Hello World!".
+
+    Create a bool variable with a true value.
+
+    Output all the variables you just created.   
+
+    */
+
+    double myDouble = 50;
+
+    string myString = "Hello World!";
+
+    bool myBool = true;
+
+    cout << "Double variable: " << myDouble << endl;
+
+    cout << "String variable: " << myString << endl;
+
+    cout << "Bool variable: " << myBool << endl;
+
+    cout << "\n";
+
+    cout << "Arithmetic Operators Section \n"; 
+
+    /*  
+
+    3. Create 3 int variables using these names: num1, num2, and sum.
+
+    Give values to your variables num1 and num2. 
+
+    Perform a Multiplication equation to equal sum. Display sum. 
+
+    Perform a Division equation to equal sum. Display sum. 
+
+    Perform an equation using the modulus operator to equal sum.
+
+    Display sum. 
+
+    */
+
+    int num1 = 10;
+
+    int num2 = 3;
+
+    int sum = num1 * num2;
+
+    cout << "Multiplication result: " << sum << endl;
+
+    sum = num1 / num2;
+
+    cout << "Division result: " << sum << endl;
+
+    sum = num1 % num2;
+
+    cout << "Modulus result: " << sum << endl;
+
+    cout << "\n";
+
+    cout << "Pointer Section \n"; 
+
+    /*  
+
+    4. Create a double pointer variable with a null value.
+
+    Create a double variable with the value of 11. Change the value
+
+    of your double variable to 7.5 by using the pointer and
+
+    display your new double. 
+
+    */
+
+    double* ptr = nullptr;
+
+    double myDouble2 = 11;
+
+    ptr = &myDouble2;
+
+    *ptr = 7.5;
+
+    cout << "New double value: " << myDouble2 << endl;
+
+    cout << "\n";
+
+    cout << "Dynamic Memory Allocation Section \n"; 
+
+    /*  
+
+    5. Create an int variable with the value of 5. 
+
+    Create a dynamic array with the size of your variable.
+
+    Make a loop to transfer the contents from your 'oldArr' 
+
+    into your dynamic array. When transferring the values, multiply
+
+    each value by 2. Use another loop to display the contents of
+
+    your new array. Delete the used memory. 
+
+    */
+
+    int oldArr[5] = {7, 8, 2, 9, 1};
+
+    int size = 5;
+
+    int* newArr = new int[size];
+
+    for (int i = 0; i < size; i++) {
+
+        newArr[i] = oldArr[i] * 2;
+
+    }
+
+    for (int i = 0; i < size; i++) {
+
+        cout << newArr[i] << " ";
+
+    }
+
+    cout << endl;
+
+    delete[] newArr;
+
+    return 0
+

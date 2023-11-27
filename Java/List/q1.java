@@ -1,5 +1,4 @@
 /*
- * Hia Al Saleh 
  * Question number 1 
 */
 // This is our Node class. It has data (the value of the node) and next (which points to the next node in the list).

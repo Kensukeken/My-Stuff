@@ -66,6 +66,7 @@ public class GeometryDashGame extends JPanel implements ActionListener {
         });
         // Set focusable to true for the button to receive key events
         playAgainButton.setFocusable(true);
+
     }
 
     public void paint(Graphics g) {
@@ -136,6 +137,10 @@ public class GeometryDashGame extends JPanel implements ActionListener {
         });
     }
 }
+
+
+
+
 
 class Cube {
     private int x, y;
@@ -235,7 +240,7 @@ class Obstacle {
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(Color.BLACK);
         g.fillRect(x, y, width, height);
     }
 

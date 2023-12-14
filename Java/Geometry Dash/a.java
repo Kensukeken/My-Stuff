@@ -119,6 +119,7 @@ public class GeometryDashGame extends JPanel implements ActionListener {
     }
 }
 
+// Cube
 class Cube {
     private int x, y;
     private int width, height;
@@ -228,6 +229,11 @@ class Obstacle {
     public int getWidth() {
         return width;
     }
+
+    public int getHeight() {
+        return height;
+    }
+}
 
     public int getHeight() {
         return height;

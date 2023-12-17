@@ -44,7 +44,7 @@ public class SpikeJumpGame extends JPanel implements ActionListener {
         spikes.add(new Actor("spike.png", 550, 310));
         spikes.add(new Actor("spike.png", 650, 310));
 
-        floor = new ZRect(0, 340, WIDTH, 5);
+        floor = new ZRect(0, 340, WIDTH, 3);
         cube = new Cube(floor);
 
         timer = new Timer(TIME_TICK, this);
@@ -109,14 +109,14 @@ public class SpikeJumpGame extends JPanel implements ActionListener {
         cube.draw(g);
 
         g.setColor(Color.WHITE);
-        g.drawString("Score: " + score, 10, 20);
+        g.drawString("Score: " + score, 40, 40);
     }
 
     private void drawGameOver(Graphics g) {
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.PLAIN, 40));
-        g.drawString("Game Over!", 50, 200);
-        g.drawString("Your Score: " + score, 25, 300);
+        g.drawString("Game Over!", 250, 200);
+        g.drawString("Your Score: " + score, 225, 300);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -275,11 +275,11 @@ class Cube {
     }
 
     public void update() {
-        if (y + height < SpikeJumpGame.HEIGHT - floor.getHeight()) {
+        if (y + height < floor.getY()) {
             ySpeed += SpikeJumpGame.GRAVITY;
             y += ySpeed;
         } else {
-            y = SpikeJumpGame.HEIGHT - height - floor.getHeight();
+            y = -height + floor.getY();
             ySpeed = 0;
             isJumping = false;
         }
@@ -288,13 +288,13 @@ class Cube {
             angle += 2;
         }
 
-        if (angle <= 45 && angle > 315) {
+        if (angle <= 90 && angle > 0) {
             angle = 0;
-        } else if (angle > 45 && angle <= 135) {
+        } else if (angle > 90 && angle <= 180) {
             angle = 90;
-        } else if (angle > 135 && angle <= 225) {
+        } else if (angle > 180 && angle <= 270) {
             angle = 180;
-        } else {
+        } else if (angle > 270 && angle <= 360) {
             angle = 270;
         }
     }

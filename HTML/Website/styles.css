@@ -1,0 +1,61 @@
+/* styles.css */
+
+h1 {
+    color: rgb(15, 10, 10);
+    font-size: 50px;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #5c4c73;
+}
+
+ul {
+    list-style-type: none;
+    text-align: right;
+    
+}
+
+li {
+    display: inline;
+    margin: 1rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: larger;
+    color: aliceblue;
+}
+
+a:hover {
+    color: #c005f3;
+}
+
+p {
+    font-size: 25px;
+    text-indent: 50px;
+    line-height: 2;
+    padding-bottom: 250px; /* Increase padding after the paragraph */
+}
+
+.icon,
+.experience-logo {
+    display: flex;
+}
+
+.icon img,
+.experience-logo img {
+    width: auto;
+    height: 8rem;
+    margin-right: 20px;
+    margin-bottom: 150px; /* Increase margin at the bottom of the images */
+}
+
+.experience-logo {
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding-bottom: 150px; /* Increase padding after the logo images */
+}

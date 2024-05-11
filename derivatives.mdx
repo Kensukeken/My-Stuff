@@ -1,0 +1,183 @@
+# Instantaneous Rate of Change, aka Tangent Lines, Slope at a Point, Derivatives
+__Tangent Lines:__ A tangent line to a curve is the straight line that most resembles the graph near that point.  By finding the slope of a tangent line, we can find the slope of the curve at the given point. 
+Here are some examples of tangent lines:
+![tangent](/tangentslope.png)
+
+Up until now, we have talked about needing two points to determine the slope of a line. However, as we begin talking about derivatives, we need to talk about the slope of a curve at a certain point. 
+
+Suppose that we wish to determine the slope of the curve $y=f(x)$ at the point where $x=a$. This is the same as finding the slope of the line tangent to the curve $y=f(x)$ at $x=a$.
+
+When $x=a$, $y=f(x)$.  Therefore, we will be trying to determine the slope of the curve $y=f(x)$ at the point $(a, f(a))$.
+![slope](/mcv4uslopeofthetangentline.png)
+
+## Slope of Tangent
+
+<div className="border-2 border-purple-500">
+The derivative of the function $y=f(x)$ is given formula
+  $$
+  f'(x)=\lim_{h \to 0} \frac{f(x+h)-f(x)}{h},
+  $$
+ Other symbols for the derivative include $y'$ and $\frac{\delta y}{\delta x}$
+ </div>
+
+The derivative of a function allows you to determine the slope of the line tangent to a curve at a given point. In other words, you can find the slope of the line when you only know one point on the line. The value of the derivative is often called the instantaneous rate of change.
+
+### Example 1:
+Determine the derivative of the function \( y=x^2 \) and evaluate the derivative at the point where \( x=3 \).
+
+**Solution:**
+$$
+\begin{align*}
+    y' &= \lim_{x \to 0} \frac{f(x+h)-f(x)}{h}\\
+    &= \lim_{h \to 0} \frac{(x+h)^2-x^2}{h}\\
+    &= \lim_{h \to 0} \frac{x^2+2xh+h^2-x^2}{h}\\
+    &= \lim_{h \to 0} \frac{2xh+h^2}{h}\\
+    &= \lim_{h \to 0} (2x+h)\\
+    &= 2x + 0\\
+    &= 2x.\\
+    & \therefore y'=2x, \text{ at } x=3. \\
+    y' &=2(3)=6 
+\end{align*}
+$$
+By evaluating the limit as the change in \( x \) approaches zero, we find the derivative \( y' = 2x \). Therefore, at \( x = 3 \), the derivative equals 6.
+
+### Example 2:
+Given that $ y=3x^2-7x+6 $, determine the value of $ \frac{\delta y}{\delta x} $ at $ x=5 $.
+
+**Solution:**
+$$
+\begin{align*}
+    f'(x) &= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\\
+    &= \lim_{h \to 0} \frac{3(x+h)^2-7(x+h)+6-(3x^2-7x+6)}{h}\\
+    &= \lim_{h \to 0} \frac{3(x^2+2xh+h^2)-7x+7h+6-3x^2+7x-6}{h}\\
+    &= \lim_{h \to 0} \frac{\cancel{3x^2}+6xh+3h^2\cancel{-7x}+7h\cancel{+6}\cancel{-3x^2}\cancel{+7x}\cancel{-6}}{h}\\
+    &= \lim_{h \to 0} \frac{6hx+3h^2-7h}{h}\\
+    &= \lim_{h \to 0} \frac{\cancel{h}(6x+3h-7)}{\cancel{h}}\\
+    &= 6x+3(0)-7\\
+    &= 6x-7
+\end{align*}
+$$
+At $ x=5 $ 
+$$
+\begin{align*}
+    \frac{\delta y}{\delta x} &= 6(5)-7\\
+    &= 23
+\end{align*}
+$$
+
+### Example 3:
+Determine the equation of the tangent line of the curve $f(x)= \frac{1}{x}$ at the point where $ x=2 $.
+
+**Solution:**
+$$
+\begin{align*}
+    f'(x) &= \lim_{h \to 0}\frac{f(x+h)-f(x)}{h}\\
+    &= \lim_{h \to 0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h}\\
+    &= \lim_{h \to 0} \frac{\frac{x}{x(x+h)} -\frac{(x+h)}{x(x+h)}}{h}\\
+    &= \lim_{h \to 0} \frac{x-(x+h)}{xh(x+h)}\\
+    &= \lim_{h \to 0} \frac{x-x-h}{xh(x+h)}\\
+    &= \lim_{h \to 0} \frac{\cancel{h}}{x\cancel{h}(x+h)}\\
+    &= \frac{-1}{x(x+0)}\\
+    &= \frac{-1}{x^2}
+\end{align*}
+$$
+At $ x=3 $, $ y=\frac{1}{2} $. Therefore, the point is $ (2,\frac{1}{2}) $.  
+The derivative is $ \frac{-1}{x^2} $. Therefore, the slope at $ x=2 $ is $ \frac{-1}{2^2}=\frac{-1}{4} $.
+$$
+\begin{align*}
+    &= y=mx+b\\
+    &= y=\frac{-1}{4}x+b\\
+    & \text{Substitute } (2,\frac{1}{2})\\
+    \frac{1}{2} &= \frac{-1}{4}(2)+b\\
+    1 &=b
+\end{align*}
+$$
+The equation of the tangent line is $ y=-\frac{1}{4}x+1 $
+
+## No Derivative
+This graph represents a function that is not differentiable at certain points. The presence of a cusp and vertical tangent lines indicates that the function lacks a derivative at those points.
+
+![nodiff](/nondiff.png)
+
+## Inverse Derivative
+This graph represents the inverse function of a function that has a derivative. The presence of a straight line indicates that the inverse function is linear. Additionally, the graph illustrates that the inverse function reverses the behavior of the original function with respect to the line $y=x$.
+
+![inverse](/dinverse.png)
+
+## Power Rule
+<div className="border-2 border-purple-900">
+*Proof*
+$$
+\begin{align*}
+    f'(x)&=\lim_{h \to 0}\frac{f(x+h)-f(x)}{h}\\
+    & \text{if } f(x)=x^n\\
+    & \text{Then, } f(x+h)= (x+h)^n 
+\end{align*}
+$$
+</div>
+### Example 1:
+If \( f(x)= 4x^5 \), then determine \( f'(x) \).
+**Solution**
+$$
+\begin{align*}
+    &= 4x^5\\
+    &= (5)(4)x^{5-1}\\
+    &=20x^4
+\end{align*}
+$$
+### Example 2:
+if $f(x)= 11x^{\frac{5}{2}}$, then determine $f'(x)$
+**Solution:**
+$$
+\begin{align*}
+    &= 11x^{\frac{5}{2}}\\
+    &= \left(\frac{5}{2}\right)(10)x^{\frac{5}{2}-1}\\
+    &= \frac{55}{2}x^{\frac{3}{2}}\\
+\end{align*}
+$$
+## Product Rule
+<div className="border-2 border-red-500">
+
+The product rule states that if $p(x)=f(x)g(x)$, 
+
+then $p'(x)=f'(x)g(x)+f(x)g'(x)$. Product Rule in Newton Notation.
+
+$$\frac{\delta}{\delta x}(uv)=\left(\frac{\delta u}{\delta x}\right)v+u\left(\frac{\delta v}{\delta x}\right)$$ Product Rule in Leibniz Notation
+</div>
+
+
+*Proof of the Product Rule*
+$$
+\begin{align*}
+    p'(x) &= \lim_{h \to 0}\frac{p(x+h)-p(x)}{h}\\
+    &=\lim_{h \to 0}\frac{f(x+h)g(x+h)-f(x)g(x)}{h}\\
+    &=\lim_{h \to 0}\frac{f(x+h)g(x+h)\textcolor{red}{-f(x)g(x+h)+f(x)g(x+h)}-f(x)g(x)}{h}\\
+    &= \lim_{h \to 0}\left[\frac{f(x+h)-f(x)}{h}\right]g(x+h)+f(x)\left[\frac{g(x+h)-g(x)}{h} \right]\\
+    &=\left(\lim_{h \to 0} \frac{f(x+h)-f(x)}{h} \right) \left[\lim_{h \to 0}g(x+h)\right]+\left[\lim_{h \to 0} f(x)\right]\left(\lim_{h \to 0}\frac{g(x+h)-g(x)}{h}  \right)\\
+    &=f'(x)g(x)+f(x)g'(x)
+\end{align*}
+$$
+
+### Example
+Differentiate $ h(x)=(x^3-2x)(3x^4+2x+8) $.
+
+**Solution:**
+$ h'(x)=(3x^2-2)(3x^4+2x+8)+(x^3-2x)(12x^3+2) $
+
+Because of the power rule, we are able to say that the derivative of $ kf(x) $ where $ k $ is a scalar is $ kf'(x) $. In other words, we are able to just leave the scalar alone in front and determine the derivative of the function.
+
+An example of this would be that if $ y=7(3x^2+2x+6) $, then 
+$ \frac{\delta y}{\delta x}=7(6x+2) $
+
+In other words, the derivative would equal \( 7 \) times the derivative of the polynomial.
+
+How do we know this? By the power rule. Here’s the explanation.
+
+Let $ f(x)g(x) $, where $ f(x)=7 $ and $ g(x)=3x^2+2x+6 $.
+$$
+\begin{align*}
+    \frac{\delta y}{\delta x}&=f'(x)g(x)+f(x)g'(x)\\
+    \frac{\delta y}{\delta x}&=(0)(3x^2+2x+6)+7(6x+2)\\
+    &=7(6x+2)
+\end{align*}
+$$

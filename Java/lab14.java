@@ -57,7 +57,7 @@ public class lab14 {
     }
 }
 
-
+`````````````````````````````````````````````````````````````````````````````````````````````````````
 
 public class Main {
     public static void main(String[] args) {
@@ -123,6 +123,95 @@ public class Main {
 
         do {
             result = Roll(); 
+            if (result == point) {
+                continueRolling = false; 
+            }
+
+            if (result == 7) {
+                continueRolling = false;
+            }
+
+        } while (continueRolling);
+        if (result == 7) {
+            gameResult(0);
+        } else {
+            gameResult(1);
+        }
+    }
+}
+`````````````````````````````````````````````````````````````````````````````````````````
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Random rand = new Random(); 
+        int rollDice = roll(rand);
+        int result = checkResult(rollDice);
+
+        if (isWin(result)) {
+            gameResult(1);
+        } else if (isLose(result)) {
+            gameResult(0);
+        } else {
+            keepRolling(result, rand); 
+        }
+    }
+
+    /** Method to roll one die using Random */
+    public static int rollDie(Random rand) {
+        return rand.nextInt(6) + 1; // Generates a number between 1 and 6
+    }
+
+    /** Method to roll two dice and return the sum */
+    public static int roll(Random rand) {
+        int die1 = rollDie(rand); 
+        int die2 = rollDie(rand); 
+        int rollSum = die1 + die2; 
+        System.out.println("You rolled " + die1 + " + " + die2 + " = " + rollSum);
+        return rollSum;
+    }
+
+    /** Method to check if you win or lose */
+    public static int checkResult(int rollSum) {
+        switch (rollSum) {
+            case 2:
+            case 3:
+            case 12:
+                return 0;
+            case 7:
+            case 11:
+                return 1; 
+            default:
+                return rollSum; 
+        }
+    }
+
+    /** Method to print if you win or lose */
+    public static void gameResult(int result) {
+        if (result == 0) {
+            System.out.println("You lose");
+        } else if (result == 1) {
+            System.out.println("You win");
+        }
+    }
+
+    /** Method to check if it's a win */
+    public static boolean isWin(int result) {
+        return result == 1;
+    }
+
+    /** Method to check if it's a loss */
+    public static boolean isLose(int result) {
+        return result == 0;
+    }
+
+    /** Method to keep rolling until you win or lose */
+    public static void keepRolling(int point, Random rand) { // Pass the Random object to keepRolling
+        int result;
+        boolean continueRolling = true;
+
+        do {
+            result = roll(rand); 
             if (result == point) {
                 continueRolling = false; 
             }

@@ -158,8 +158,111 @@ public class Lab12 extends Application {
     }
 }
 
+/* default
+package com.lab12;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.*;
+
+public class Lab12 extends Application {
+
+    private static final String FILE_NAME = "highscore.txt";
+
+    @Override
+    public void start(Stage stage) {
+        // --- Input Scene ---
+        VBox inputBox = new VBox(10);
+        inputBox.setPrefSize(400, 200);
+        TextField inputField = new TextField();
+        inputField.setPromptText("Enter a number");
+
+        Button enterButton = new Button("Enter");
+
+        inputBox.getChildren().addAll(inputField, enterButton);
+        Scene inputScene = new Scene(inputBox);
+
+        // --- Score Scene ---
+        VBox scoreLayout = new VBox(10);
+        Label title = new Label("High Scores");
+        Button backButton = new Button("Back");
+
+        Scene scoreScene = new Scene(scoreLayout, 400, 300);
+
+        // --- Enter Button Action ---
+        enterButton.setOnAction(e -> {
+            String text = inputField.getText().trim();
+            try {
+                int number = Integer.parseInt(text);
+                saveToFile(number);
+                inputField.clear();
+
+                // Load and display scores
+                scoreLayout.getChildren().clear();
+                scoreLayout.getChildren().add(title);
+                scoreLayout.getChildren().add(backButton);
+
+                List<Integer> scores = loadScoresFromFile();
+                for (int score : scores) {
+                    scoreLayout.getChildren().add(new Label("Score: " + score));
+                }
+
+                stage.setScene(scoreScene);
+            } catch (NumberFormatException ex) {
+                inputField.setText("Invalid number!");
+            }
+        });
+
+        // --- Back Button Action ---
+        backButton.setOnAction(e -> {
+            inputField.clear();
+            stage.setScene(inputScene);
+        });
+
+        // --- Show the Stage ---
+        stage.setTitle("Score App");
+        stage.setScene(inputScene);
+        stage.show();
+    }
+
+    // Save score to file
+    private void saveToFile(int number) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME, true))) {
+            writer.print(number + " ");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Load and sort scores
+    private List<Integer> loadScoresFromFile() {
+        List<Integer> scores = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File(FILE_NAME))) {
+            while (scanner.hasNextInt()) {
+                scores.add(scanner.nextInt());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scores.sort(Collections.reverseOrder());
+        return scores;
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
+
+ */
+
 
 /*
+the real one
 package com.lab12;
 
 import javafx.application.Application;
@@ -181,7 +284,7 @@ public class Lab12 extends Application {
         // --- Input Scene ---
         VBox inputBox = new VBox(10);
         inputBox.setPrefSize(400, 200);
-        inputBox.setAlignment(Pos.CENTER);  // Centering the content
+        inputBox.setAlignment(Pos.CENTER);
         TextField inputField = new TextField();
         inputField.setPromptText("Enter a number");
 
@@ -229,7 +332,7 @@ public class Lab12 extends Application {
         });
 
         // --- Show the Stage ---
-        stage.setTitle("Score App");
+        stage.setTitle("Lab 12");
         stage.setScene(inputScene);
         stage.show();
     }
@@ -255,6 +358,127 @@ public class Lab12 extends Application {
         }
         scores.sort(Collections.reverseOrder());
         return scores;
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
+
+*/
+/*
+if the number already exists in the file
+package com.lab12;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+
+import java.io.*;
+import java.util.*;
+
+public class Lab12 extends Application {
+
+    private static final String FILE_NAME = "highscore.txt";
+
+    @Override
+    public void start(Stage stage) {
+        // --- Input Scene ---
+        VBox inputBox = new VBox(10);
+        inputBox.setPrefSize(400, 200);
+        inputBox.setAlignment(Pos.CENTER);
+        TextField inputField = new TextField();
+        inputField.setPromptText("Enter a number");
+
+        Button enterButton = new Button("Enter");
+
+        inputBox.getChildren().addAll(inputField, enterButton);
+        Scene inputScene = new Scene(inputBox);
+
+        // --- Score Scene ---
+        VBox scoreLayout = new VBox(10);
+        scoreLayout.setAlignment(Pos.CENTER);
+        Label title = new Label("High Scores");
+        Button backButton = new Button("Back");
+
+        scoreLayout.getChildren().addAll(title, backButton);
+        Scene scoreScene = new Scene(scoreLayout, 400, 300);
+
+        // --- Enter Button Action ---
+        enterButton.setOnAction(e -> {
+            String text = inputField.getText().trim();
+            try {
+                int number = Integer.parseInt(text);
+                if (isNumberAlreadyExist(number)) {
+                    inputField.setText("Number already exists!");
+                } else {
+                    saveToFile(number);
+                    inputField.clear();
+
+                    // Load and display scores
+                    scoreLayout.getChildren().clear();
+                    scoreLayout.getChildren().addAll(title, backButton);
+
+                    List<Integer> scores = loadScoresFromFile();
+                    for (int score : scores) {
+                        scoreLayout.getChildren().add(new Label("Score: " + score));
+                    }
+
+                    stage.setScene(scoreScene);
+                }
+            } catch (NumberFormatException ex) {
+                inputField.setText("Invalid number!");
+            }
+        });
+
+        // --- Back Button Action ---
+        backButton.setOnAction(e -> {
+            inputField.clear();
+            stage.setScene(inputScene);
+        });
+
+        // --- Show the Stage ---
+        stage.setTitle("Score App");
+        stage.setScene(inputScene);
+        stage.show();
+    }
+
+    private void saveToFile(int number) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME, true))) {
+            writer.print(number + " ");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private List<Integer> loadScoresFromFile() {
+        List<Integer> scores = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File(FILE_NAME))) {
+            while (scanner.hasNextInt()) {
+                scores.add(scanner.nextInt());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        scores.sort(Collections.reverseOrder());
+        return scores;
+    }
+
+    // Check if the number already exists in the file
+    private boolean isNumberAlreadyExist(int number) {
+        try (Scanner scanner = new Scanner(new File(FILE_NAME))) {
+            while (scanner.hasNextInt()) {
+                if (scanner.nextInt() == number) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static void main(String[] args) {
